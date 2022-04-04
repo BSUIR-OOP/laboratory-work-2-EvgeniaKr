@@ -13,44 +13,37 @@ namespace ConsoleApp1
             var list = new List<list>();
             while (true)
             {
-                char key = Action();
+                Console.Clear();
+                Console.WriteLine("A - Add figure");
+                Console.WriteLine("P - Print figures");
+                char key = char.Parse(Console.ReadLine());
 
                 if (key == 'A')
                 {
-                    int figureChoice = Figure();
-                    Add(figureChoice, list);
+                    Console.Clear();
+                    Console.WriteLine("1 - ellips");
+                    Console.WriteLine("2 - circle");
+                    Console.WriteLine("3 - polygon");
+                    Console.WriteLine("4 - line");
+                    Console.WriteLine("5 - rectangle");
+                    Console.WriteLine("6 - reckv");
+                    Console.WriteLine("0 - back\n");
+                    int figure = int.Parse(Console.ReadLine());
+                    Add(figure, list);
                 }
                 else if (key == 'P')
                 {
-                    Print(list);
+                    Console.Clear();
+                    foreach (var figure in list)
+                    {
+                        Console.Write($"{figure.Id}: ");
+                        figure.printf();
+                    }
                     Console.ReadLine();
                 }
 
             }
         }
-
-        static char Action()
-        {
-            Console.Clear();
-            Console.WriteLine("A - Add figure");
-            Console.WriteLine("P - Print figures");
-            return char.Parse(Console.ReadLine());
-        }
-
-        static int Figure()
-        {
-            Console.Clear();
-            Console.WriteLine("1 - ellips");
-            Console.WriteLine("2 - circle");
-            Console.WriteLine("3 - polygon");
-            Console.WriteLine("4 - line");
-            Console.WriteLine("5 - rectangle");
-            Console.WriteLine("6 - reckv");
-            Console.WriteLine("0 - back\n");
-            return int.Parse(Console.ReadLine());
-
-        }
-
         static void Add(int id, List<list> list)
         {
             switch (id)
@@ -90,17 +83,6 @@ namespace ConsoleApp1
                     break;  
                 
             }
-        }
-        static void Print(List<list> list)
-        {
-            Console.Clear();
-            foreach (var figure in list)
-            {
-                Console.Write($"{figure.Id}: ");
-                figure.printf();
-            }
-        }
-
-        
+        }        
     }
 }

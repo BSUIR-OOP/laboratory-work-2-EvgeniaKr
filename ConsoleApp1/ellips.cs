@@ -10,10 +10,6 @@ namespace ConsoleApp1
     {
         private protected int FA, TA;
         private protected int x, y;
-        public virtual int F { get { return FA; } set { FA = value; } }
-        public virtual int T { get { return TA; } set { TA = value; } }
-        public int kx { get { return x; } set { x = value; } }
-        public int ky { get { return y; } set { y = value; } }
 
         public ellips(int x1, int y1, int a1, int a2)
         {
@@ -42,9 +38,9 @@ namespace ConsoleApp1
             x = int.Parse(Console.ReadLine());
             Console.Write("y: ");
             y = int.Parse(Console.ReadLine());
-            Console.Write(": ");
+            Console.Write("a1: ");
             FA = int.Parse(Console.ReadLine());
-            Console.Write(": ");
+            Console.Write("a2: ");
             TA = int.Parse(Console.ReadLine());
         }
     }

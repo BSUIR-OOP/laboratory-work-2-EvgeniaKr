@@ -6,10 +6,6 @@ namespace ConsoleApp1
 {
     class rectangle : polygon
     {
-        public override int kx3 { get { return x3; } }
-        public override int kx4 { get { return x4; } }
-        public override int ky3 { get { return y3; } }
-        public override int ky4 { get { return y4; } }
         public rectangle(int x1, int y1, int x2, int y2) : base(x1, y1, x1, y2, x2, y2, x2, y1)
         {
 
