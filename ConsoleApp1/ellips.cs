@@ -6,12 +6,15 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
-    class ellips : list
+    class Ellips : Figure
     {
         private protected int FA, TA;
         private protected int x, y;
-
-        public ellips(int x1, int y1, int a1, int a2)
+        public virtual int F { get { return FA; } set { FA = value; } }
+        public virtual int T { get { return TA; } set { TA = value; } }
+        public int px { get { return x; } set { x = value; } }
+        public int py { get { return y; } set { y = value; } }
+        public Ellips(int x1, int y1, int a1, int a2)
         {
             id = ++i;
             FA = a1;
@@ -20,13 +23,13 @@ namespace ConsoleApp1
             y = y1;
         }
 
-        public ellips()
+        public Ellips()
         {
             id = ++i;
         }
 
 
-        public override string name() { return "ellips"; }
+        public override string name() { return "Ellips"; }
         public override void printf()
         {
             Console.WriteLine(

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ConsoleApp1
 {
-    internal abstract class list
+    internal abstract class Figure
     {
         public int Id { get { return id; } }
         private protected int id;

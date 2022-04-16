@@ -10,7 +10,7 @@ namespace ConsoleApp1
     {
         static void Main()
         {
-            var list = new List<list>();
+            var figures = new List<Figure>();
             while (true)
             {
                 Console.Clear();
@@ -21,20 +21,20 @@ namespace ConsoleApp1
                 if (key == 'A')
                 {
                     Console.Clear();
-                    Console.WriteLine("1 - ellips");
-                    Console.WriteLine("2 - circle");
-                    Console.WriteLine("3 - polygon");
-                    Console.WriteLine("4 - line");
-                    Console.WriteLine("5 - rectangle");
-                    Console.WriteLine("6 - reckv");
-                    Console.WriteLine("0 - back\n");
+                    Console.WriteLine("1 - Ellips");
+                    Console.WriteLine("2 - Circle");
+                    Console.WriteLine("3 - Polygon");
+                    Console.WriteLine("4 - Line");
+                    Console.WriteLine("5 - Rectangle");
+                    Console.WriteLine("6 - Rhombus");
+                    Console.WriteLine("0 - Back\n");
                     int figure = int.Parse(Console.ReadLine());
-                    Add(figure, list);
+                    Add(figure, figures);
                 }
                 else if (key == 'P')
                 {
                     Console.Clear();
-                    foreach (var figure in list)
+                    foreach (var figure in figures)
                     {
                         Console.Write($"{figure.Id}: ");
                         figure.printf();
@@ -44,7 +44,7 @@ namespace ConsoleApp1
 
             }
         }
-        static void Add(int id, List<list> list)
+        static void Add(int id, List<Figure> figures)
         {
             switch (id)
             {
@@ -52,34 +52,34 @@ namespace ConsoleApp1
                 case 0:
                     break;
                 case 1:
-                    list figure = new ellips();
+                    Figure figure = new Ellips();
                     figure.coor();
-                    list.Add(figure);
+                    figures.Add(figure);
                     break;
                 case 2:
-                    figure = new circle();
+                    figure = new Circle();
                     figure.coor();
-                    list.Add(figure);
+                    figures.Add(figure);
                     break;
                 case 3:
-                    figure = new polygon();
+                    figure = new Polygon();
                     figure.coor();
-                    list.Add(figure);
+                    figures.Add(figure);
                     break;
                 case 4:
-                    figure = new line();
+                    figure = new Line();
                     figure.coor();
-                    list.Add(figure);
+                    figures.Add(figure);
                     break;
                 case 5:
-                    figure = new rectangle();
+                    figure = new Rectangle();
                     figure.coor();
-                    list.Add(figure);
+                    figures.Add(figure);
                     break;
                 case 6:
-                    figure = new reckv();
+                    figure = new Rhombus();
                     figure.coor();
-                    list.Add(figure);
+                    figures.Add(figure);
                     break;  
                 
             }

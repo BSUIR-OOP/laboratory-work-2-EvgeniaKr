@@ -4,18 +4,18 @@ using System.Text;
 
 namespace ConsoleApp1
 {
-    class circle : ellips
+    class Circle : Ellips
     {
         public int radius { get { return FA; } set { FA = value; TA = value; } }
 
-        public circle(int x1, int y1, int r) : base(x1, y1, r, r)
+        public Circle(int x1, int y1, int r) : base(x1, y1, r, r)
         {
         }
-        public circle() : base()
+        public Circle() : base()
         {
         }
 
-        public override string name() { return "circle"; }
+        public override string name() { return "Circle"; }
         public override void printf()
         {
             Console.WriteLine(
