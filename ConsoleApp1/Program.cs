@@ -14,7 +14,6 @@ namespace ConsoleApp1
         static void Main()
         {
             var figures = new List<Figure>();
-            IEnumerable<Type> shapesTypes = typeof(Figure).Assembly.ExportedTypes.Where(t => typeof(Figure).IsAssignableFrom(t) && t != typeof(Figure));
             var figuresContainer = new List<Figure>();
 
             figuresContainer.Add(new Ellips());
