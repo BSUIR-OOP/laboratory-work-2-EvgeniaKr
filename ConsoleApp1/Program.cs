@@ -6,11 +6,24 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
+
     class Program
     {
+        
+
         static void Main()
         {
             var figures = new List<Figure>();
+            IEnumerable<Type> shapesTypes = typeof(Figure).Assembly.ExportedTypes.Where(t => typeof(Figure).IsAssignableFrom(t) && t != typeof(Figure));
+            var figuresContainer = new List<Figure>();
+
+            figuresContainer.Add(new Ellips());
+            figuresContainer.Add(new Circle());
+            figuresContainer.Add(new Polygon());
+            figuresContainer.Add(new Line());            
+            figuresContainer.Add(new Rectangle());
+            figuresContainer.Add(new Rhombus());
+
             while (true)
             {
                 Console.Clear();
@@ -28,8 +41,22 @@ namespace ConsoleApp1
                     Console.WriteLine("5 - Rectangle");
                     Console.WriteLine("6 - Rhombus");
                     Console.WriteLine("0 - Back\n");
-                    int figure = int.Parse(Console.ReadLine());
-                    Add(figure, figures);
+                    
+                    
+                    int id = int.Parse(Console.ReadLine());
+                    int i = 1;
+                    foreach (var f in figuresContainer)
+                    {
+                        if (i == id)
+                        {
+                            Figure figure = f;
+                            figure.coor();
+                            figures.Add(figure);
+                            break;
+
+                        }
+                        i++;
+                    }
                 }
                 else if (key == 'P')
                 {
@@ -44,45 +71,6 @@ namespace ConsoleApp1
 
             }
         }
-        static void Add(int id, List<Figure> figures)
-        {
-            switch (id)
-            {
-                // Back
-                case 0:
-                    break;
-                case 1:
-                    Figure figure = new Ellips();
-                    figure.coor();
-                    figures.Add(figure);
-                    break;
-                case 2:
-                    figure = new Circle();
-                    figure.coor();
-                    figures.Add(figure);
-                    break;
-                case 3:
-                    figure = new Polygon();
-                    figure.coor();
-                    figures.Add(figure);
-                    break;
-                case 4:
-                    figure = new Line();
-                    figure.coor();
-                    figures.Add(figure);
-                    break;
-                case 5:
-                    figure = new Rectangle();
-                    figure.coor();
-                    figures.Add(figure);
-                    break;
-                case 6:
-                    figure = new Rhombus();
-                    figure.coor();
-                    figures.Add(figure);
-                    break;  
-                
-            }
-        }        
+              
     }
 }
