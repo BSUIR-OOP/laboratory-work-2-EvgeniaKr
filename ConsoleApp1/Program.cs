@@ -13,15 +13,19 @@ namespace ConsoleApp1
 
         static void Main()
         {
-            var figures = new List<Figure>();
-            var figuresContainer = new List<Figure>();
+           
+            Dictionary<string, CreateFigures> FigureDictionary = new Dictionary<string, CreateFigures>()
+            {
+                { "Ellips", new EllipsCreate("Ellips") },
+                { "Circle", new CircleCreate("Circle") },
+                { "Polygon", new PolygonCreate("Polygon") },
+                { "Line", new LineCreate("Line") },
+                { "Rectangle", new RectangleCreate("Rectangle") },
+                { "Rhombus", new RhombusCreate("Rhombus") }
 
-            figuresContainer.Add(new Ellips());
-            figuresContainer.Add(new Circle());
-            figuresContainer.Add(new Polygon());
-            figuresContainer.Add(new Line());            
-            figuresContainer.Add(new Rectangle());
-            figuresContainer.Add(new Rhombus());
+            };
+            var figures = new List<Figure>();
+            
 
             while (true)
             {
@@ -33,28 +37,26 @@ namespace ConsoleApp1
                 if (key == 'A')
                 {
                     Console.Clear();
-                    Console.WriteLine("1 - Ellips");
-                    Console.WriteLine("2 - Circle");
-                    Console.WriteLine("3 - Polygon");
-                    Console.WriteLine("4 - Line");
-                    Console.WriteLine("5 - Rectangle");
-                    Console.WriteLine("6 - Rhombus");
+                    foreach (var f in FigureDictionary)
+                    {
+                        Console.WriteLine(f.Key+" - "+f.Key);
+                    }
+                    
                     Console.WriteLine("0 - Back\n");
                     
                     
-                    int id = int.Parse(Console.ReadLine());
-                    int i = 1;
-                    foreach (var f in figuresContainer)
+                    string id = Console.ReadLine();
+                    
+                    foreach (var f in FigureDictionary)
                     {
-                        if (i == id)
+                        if (id == f.Key)
                         {
-                            Figure figure = f;
-                            figure.coor();
-                            figures.Add(figure);
+                            CreateFigures figure = f.Value;
+                            figures.Add(figure.Create());
                             break;
 
                         }
-                        i++;
+                        
                     }
                 }
                 else if (key == 'P')
@@ -62,7 +64,7 @@ namespace ConsoleApp1
                     Console.Clear();
                     foreach (var figure in figures)
                     {
-                        Console.Write($"{figure.Id}: ");
+                      
                         figure.printf();
                     }
                     Console.ReadLine();

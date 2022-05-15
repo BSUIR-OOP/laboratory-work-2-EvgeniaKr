@@ -10,6 +10,7 @@ namespace ConsoleApp1
         private protected int x2, y2;
         private protected int x3, y3;
         private protected int x4, y4;
+        private protected string namew;
         public int px1 { get { return x1; } set { x1 = value; } }
         public int px2 { get { return x2; } set { x2 = value; } }
         public virtual int px3 { get { return x3; } set { x3 = value; } }
@@ -19,9 +20,9 @@ namespace ConsoleApp1
         public virtual int py3 { get { return y3; } set { y3 = value; } }
         public virtual int py4 { get { return y4; } set { y4 = value; } }
 
-        public Polygon(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4)
+        public Polygon(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4, string namew)
         {
-            id = ++i;
+            
             this.x1 = x1;
             this.y1 = y1;
             this.x2 = x2;
@@ -30,38 +31,18 @@ namespace ConsoleApp1
             this.y3 = y3;
             this.x4 = x4;
             this.y4 = y4;
+            this.namew = namew;
         }
 
-        public Polygon()
-        {
-            id = ++i;
-        }
+      
 
         public override string name() { return "Polygon"; }
         public override void printf()
         {
             Console.WriteLine(
-               $"{name()} ({x1},{y1}),({x2},{y2}),({x3},{y3}),({x4},{y4})");
+               $"{name()} - {namew} : ({x1},{y1}),({x2},{y2}),({x3},{y3}),({x4},{y4})");
         }
 
-        public override void coor()
-        {
-            Console.Write("x1: ");
-            x1 = int.Parse(Console.ReadLine());
-            Console.Write("y1: ");
-            y1 = int.Parse(Console.ReadLine());
-            Console.Write("x2: ");
-            x2 = int.Parse(Console.ReadLine());
-            Console.Write("y2: ");
-            y2 = int.Parse(Console.ReadLine());
-            Console.Write("x3: ");
-            x3 = int.Parse(Console.ReadLine());
-            Console.Write("y3: ");
-            y3 = int.Parse(Console.ReadLine());
-            Console.Write("x4: ");
-            x4 = int.Parse(Console.ReadLine());
-            Console.Write("y4: ");
-            y4 = int.Parse(Console.ReadLine());
-        }
+       
     }
 }
